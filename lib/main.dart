@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/BrowseTab/selectedcategorymovies/selectedcategorymovies.dart';
 import 'package:movies_app/Themes.dart';
 import 'package:movies_app/home_screen.dart';
 
@@ -11,9 +12,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: HomeScreen.routeName,
-      routes: {HomeScreen.routeName: (context) => HomeScreen()},
+      routes: {
+        HomeScreen.routeName: (context) => HomeScreen(),
+        SelectedCategoryMoviesScreen.routeName: (context)=>SelectedCategoryMoviesScreen(),
+      },
       debugShowCheckedModeBanner: false,
       darkTheme: MyTheme.darkTheme,
+      themeMode: ThemeMode.dark,
+
     );
   }
 }
