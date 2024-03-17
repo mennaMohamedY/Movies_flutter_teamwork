@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/BrowseTab/browseTab.dart';
+import 'package:movies_app/BrowseTab/categories_screen.dart';
 import 'package:movies_app/Themes.dart';
 import 'package:movies_app/searchTab/searchTab.dart';
 import 'package:movies_app/watchListTab/watchlistTab.dart';
@@ -15,11 +16,12 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
 
-  List<Widget> Tabs = [HomeTab(), SearchTab(), BrowseTab(), WatchListTab()];
+  List<Widget> Tabs = [HomeTab(), SearchTab(), CategoriesScreen(), WatchListTab()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text("Movies"),),
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(canvasColor: MyTheme.bottomNav),
           child: BottomNavigationBar(

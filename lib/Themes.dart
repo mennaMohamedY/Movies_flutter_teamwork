@@ -4,6 +4,9 @@ class MyTheme {
   static Color sectionsGrey = Color(0xff514F4F);
   static Color bottomNav = Color(0xff232323);
   static Color yellow = Color(0xffFFB224);
+  static Color bordersColor=Color(0xff5C5C5C);
 
-  static ThemeData darkTheme = ThemeData(scaffoldBackgroundColor: Colors.black);
+
+  static ThemeData darkTheme = ThemeData(scaffoldBackgroundColor: Colors.black,
+  appBarTheme: AppBarTheme(color: Colors.black,centerTitle: true));
 }
