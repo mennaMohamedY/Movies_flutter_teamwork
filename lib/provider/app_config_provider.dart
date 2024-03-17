@@ -1,0 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:movies_app/api/NewReleaseResponse.dart';
+import 'package:movies_app/firebase/firebase_utils.dart';
+
+class AppConfigProvider extends ChangeNotifier {
+  List<Movie> savedMovies = [];
+
+  void getMoviesFromFireStore() async {
+    QuerySnapshot<Movie> snapshot = await FirebaseUtils.getCollection().get();
+    savedMovies = snapshot.docs.map((e) => e.data()).toList();
+    notifyListeners();
+  }
+}
