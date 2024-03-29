@@ -54,7 +54,7 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
                 autoPlayAnimationDuration: Duration(milliseconds: 800),
                 autoPlayCurve: Curves.fastOutSlowIn,
                 scrollDirection: Axis.horizontal,
-                height: 270.0,
+                height: MediaQuery.of(context).size.height * 0.33,
               ),
               items: resultsList.map((movie) {
                 return Builder(builder: (BuildContext context) {

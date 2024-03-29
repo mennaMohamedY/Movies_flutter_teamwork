@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:movies_app/BrowseTab/selectedcategorymovies/selectedcategorymovies.dart';
 import 'package:movies_app/Themes.dart';
 import 'package:movies_app/homeTab/movies_details/movies_details_screen.dart';
 import 'package:movies_app/home_screen.dart';
 
 void main() {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(MyApp());
+
+  FlutterNativeSplash.remove();
 }
+
+// whenever your initialization is completed, remove the splash screen:
 
 class MyApp extends StatelessWidget {
   @override
