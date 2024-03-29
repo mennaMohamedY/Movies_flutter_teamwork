@@ -21,25 +21,3 @@ class HomeTab extends StatelessWidget {
     );
   }
 }
-// CarouselSlider(
-//     options: CarouselOptions(height: 200.0,autoPlay: true ),
-//     items: resultsList.map((i) {
-//       return Builder(
-//         builder: (BuildContext context) {
-//           return Container(
-//               width: MediaQuery.of(context).size.width,
-//               decoration: BoxDecoration(
-//                   color: Colors.amber
-//               ),
-//               child:
-//               Image.network(
-//                   'https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png',
-//                 height: double.infinity,
-//                 width: double.infinity,
-//                 fit: BoxFit.fill,
-//
-//           ));
-//         }
-//       );
-//     }).toList(),
-// ),

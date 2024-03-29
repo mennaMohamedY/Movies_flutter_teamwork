@@ -6,6 +6,7 @@ class MyTheme {
   static Color yellowColor = Color(0xffFFB224);
   static Color bordersColor = Color(0xff5C5C5C);
   static Color blackColor = Color(0xff1E1E1E);
+  static Color darkBlackColor = Color(0xff000000);
   static Color greyColor = Color(0xff636363);
   static Color darkGreyColor = Color(0xff282A28);
   static Color whiteColor = Color(0xffffffff);

@@ -35,7 +35,7 @@ class _TopRatedMovieItemState extends State<TopRatedMovieItem> {
             alignment: Alignment.topLeft,
             children: [
               Image.network(widget.imagePath,
-                  height: 130, width: 115, fit: BoxFit.fill),
+                  height: 120, width: 115, fit: BoxFit.fill),
               GestureDetector(
                 onTap: () {
                   // isClicked = true;
