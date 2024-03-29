@@ -50,25 +50,50 @@ class _GenereItemState extends State<GenereItem> {
             );
           }
           var generes = snapshot.data?.genres ?? [];
-          return Container();
-          /*Expanded(
-        child: GridView.builder(scrollDirection: Axis.horizontal,gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-             /// mainAxisSpacing: 0.2,
-              ///crossAxisSpacing: 0.2
-          ),
-            itemBuilder:(context,index){
-            return Container(
-                child: Text(generes[index].name??'',style: TextStyle(color: Colors.white),),
-                decoration: BoxDecoration(color:Colors.white,borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Colors.white)),
-            width: MediaQuery.of(context).size.width*0.2,
-              height:MediaQuery.of(context).size.width*0.2 ,);
+          double popularity = snapshot.data?.popularity ?? 0;
+          String overview = snapshot.data?.overview ?? '';
+          print(generes.length);
+          return Column(children: [
+            Container(
+              child: Text(
+                'movie',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            Container(
+              child: Text(
+                'movie',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            Container(
+              child: Text(
+                'movie',
+                style: TextStyle(color: Colors.white),
+              ),
+            )
+            /* Expanded(
+            child: Column(children: [
 
-          }
-            ,itemCount:generes.length ,),
-      );*/
+                 SizedBox(height:2,
+                   child: GridView.builder(gridDelegate:
+                   SliverGridDelegateWithFixedCrossAxisCount(
+                     crossAxisCount:3 ,
+                     crossAxisSpacing:MediaQuery.of(context).size.height*0.02 ,
+                     mainAxisSpacing:MediaQuery.of(context).size.width*0.01 ,
+                     childAspectRatio: 5/3
+                   ),
+                    itemBuilder:(context,index)=>Container(color:Colors.white,
+                      height:MediaQuery.of(context).size.width*0.2 ,
+                      width: MediaQuery.of(context).size.width*0.2,
+                      child:Text(generes[index].name??'',style: TextStyle(color:Colors.white),) ,
+                    ),itemCount: generes.length,),
+                 ),
+
+
+            ],),
+          )*/
+          ]);
         });
   }
 }

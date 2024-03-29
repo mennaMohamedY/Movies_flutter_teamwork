@@ -3,16 +3,17 @@ import 'package:movies_app/Themes.dart';
 import 'package:movies_app/api/NewReleaseResponse.dart';
 import 'package:movies_app/api/VideosResponse.dart';
 import 'package:movies_app/api/api_manager.dart';
+import 'package:movies_app/searchTab/SearchItemDetails.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class SearchItemDetails extends StatefulWidget {
+class SearchItemDetailsVideo extends StatefulWidget {
   static const String routeName = 'searchItemDetails';
 
   @override
-  State<SearchItemDetails> createState() => _SearchItemDetailsState();
+  State<SearchItemDetailsVideo> createState() => _SearchItemDetailsState();
 }
 
-class _SearchItemDetailsState extends State<SearchItemDetails> {
+class _SearchItemDetailsState extends State<SearchItemDetailsVideo> {
   late YoutubePlayerController _controller;
   String? url;
 
@@ -76,55 +77,56 @@ class _SearchItemDetailsState extends State<SearchItemDetails> {
                   _controller =
                       YoutubePlayerController(initialVideoId: key ?? '');
 
-                  return Column(children: [
-                    YoutubePlayerBuilder(
-                        player: YoutubePlayer(controller: _controller),
-                        builder: (context, player) {
-                          return YoutubePlayer(controller: _controller);
-                        }),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Text(
-                              movie.title ?? '',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(
-                              height: 6,
-                            ),
-                            Text(
-                              movie.releaseDate ?? '',
-                              style: TextStyle(
-                                color: Colors.grey,
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                            Row(
-                              children: [
+                  return Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        YoutubePlayerBuilder(
+                            player: YoutubePlayer(controller: _controller),
+                            builder: (context, player) {
+                              return YoutubePlayer(controller: _controller);
+                            }),
+                        SizedBox(height: 9),
+                        Text(
+                          movie.title ?? '',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 9,
+                        ),
+                        Text(
+                          movie.releaseDate ?? '',
+                          style: TextStyle(
+                            color: Colors.grey,
+                          ),
+                        ),
+                        SizedBox(height: 40),
+                        SearchItemDetails(movie: movie),
+
+                        /*    SizedBox(height: 10),
+                        Row(children: [
                                 Stack(
                                   children: [
-                                    ClipRRect(
-                                        child: Image.network(
+                                     Image.network(
                                             'https://image.tmdb.org/t/p/w92${movie.posterPath}'),
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    Image.asset(
-                                        'assets/images/bookmark (1).png')
+
+                                    InkWell(
+                                      child:isClicked==false? Image.asset(
+                                          'assets/images/bookmark (1).png'):
+                                      Image.asset('assets/images/bookmark.png'),
+                                      onTap:(){
+                                        isClicked=true;
+                                        setState(() {
+
+                                        });
+                                      } ,
+                                    )
                                   ],
-                                ),
-                                Container(
-                                  decoration:
-                                      BoxDecoration(color: Colors.white),
-                                )
+                                ),///GenereItem(movie: movie,)
+
                               ],
-                            )
-                          ]),
-                    )
-                  ]);
+                            )*/
+                      ]);
                 })
           ],
         ));

@@ -9,6 +9,9 @@ class AppConfigProvider extends ChangeNotifier {
   void getMoviesFromFireStore() async {
     QuerySnapshot<Movie> snapshot = await FirebaseUtils.getCollection().get();
     savedMovies = snapshot.docs.map((e) => e.data()).toList();
+    savedMovies.sort((movie1, movie2) {
+      return movie1.timestamp!.compareTo(movie2.timestamp!);
+    });
     notifyListeners();
   }
 }

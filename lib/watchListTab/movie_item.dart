@@ -56,7 +56,14 @@ class _MovieItemState extends State<MovieItem> {
             );
           }
           var actors = snapshot.data!.cast ?? [];
-
+          String? act1;
+          String? act2;
+          String? act3;
+          if (actors.isNotEmpty) {
+            act1 = actors[0].name ?? '';
+            act2 = actors[1].name ?? '';
+            act3 = actors[2].name ?? '';
+          }
           return SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -104,14 +111,18 @@ class _MovieItemState extends State<MovieItem> {
                     ),
                     Row(
                       children: [
-                        Text(actors.isEmpty ? '' : actors[0].name ?? '',
-                            style: TextStyle(color: Colors.grey)),
-                        Text(','),
-                        Text(actors.isEmpty ? '' : actors[1].name ?? '',
-                            style: TextStyle(color: Colors.grey)),
-                        Text(','),
-                        Text(actors.isEmpty ? '' : actors[2].name ?? '',
-                            style: TextStyle(color: Colors.grey)),
+                        Text(
+                          '$act1 , ',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        Text(
+                          '$act1 , ',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        Text(
+                          '$act1 , ',
+                          style: TextStyle(color: Colors.grey),
+                        ),
                       ],
                     )
                   ],

@@ -4,7 +4,7 @@ import 'package:movies_app/api/NewReleaseResponse.dart';
 import 'package:movies_app/api/SearchResponsee.dart';
 import 'package:movies_app/api/api_manager.dart';
 import 'package:movies_app/searchTab/SearchItem.dart';
-import 'package:movies_app/searchTab/SearchItemDeatils.dart';
+import 'package:movies_app/searchTab/SearchItemDetailsVideo.dart';
 
 ///import 'package:provider/provider.dart';
 
@@ -110,7 +110,7 @@ loadPges();
                       itemBuilder: (context, index) => InkWell(
                         onTap: () {
                           Navigator.of(context).pushNamed(
-                              SearchItemDetails.routeName,
+                              SearchItemDetailsVideo.routeName,
                               arguments: movies[index]);
                         },
                         child: SearchItem(

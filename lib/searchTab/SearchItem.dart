@@ -55,6 +55,19 @@ class _MovieItemState extends State<SearchItem> {
             );
           }
           var actors = snapshot.data!.cast ?? [];
+
+          /* for(int i=0;i<actors.length;i++){
+            actorsNames.add(actors[i].name??'');
+          }*/
+          String? act1;
+          String? act2;
+          String? act3;
+          if (actors.isNotEmpty) {
+            act1 = actors[0].name ?? '';
+            act2 = actors[1].name ?? '';
+            act3 = actors[2].name ?? '';
+          }
+
           print(actors.length);
           return SingleChildScrollView(
             scrollDirection: Axis.horizontal,
@@ -99,18 +112,21 @@ class _MovieItemState extends State<SearchItem> {
                     SizedBox(
                       height: 5,
                     ),
-                    /*Row(
-        children: [
-          Text(actors.isEmpty?'':actors[0].name??'', style: TextStyle(color:Colors.grey)),
+                    Row(
+                      children: [
+                        /* Text('$act1 , ',style: TextStyle(color:Colors.grey),),
+
+
+          Text('$act2 , ',style: TextStyle(color:Colors.grey),),
+
+
+         Text('$act3 , ',style: TextStyle(color:Colors.grey),),*/
+
+                        /*Text(actors.isEmpty?'':actors[1].name??'', style: TextStyle(color:Colors.grey)),
           Text(','),
-          Text(actors.isEmpty?'':actors[1].name??'', style: TextStyle(color:Colors.grey)),
-          Text(','),
-          Text(actors.isEmpty?'':actors[2].name??'', style: TextStyle(color:Colors.grey)),
-
-
-
-        ],
-      )*/
+          Text(actors.isEmpty?'':actors[2].name??'', style: TextStyle(color:Colors.grey)),*/
+                      ],
+                    )
                   ],
                 ),
               ],
