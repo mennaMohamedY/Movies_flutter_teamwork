@@ -48,6 +48,7 @@ loadPges();
                   borderRadius: BorderRadius.circular(25),
                   color: Color(0xff424141)),
               child: TextField(
+                style: TextStyle(color: Colors.white, fontSize: 17),
                 decoration: InputDecoration(
                     border: InputBorder.none,
                     prefixIcon: Icon(

@@ -12,7 +12,7 @@ class MyTheme {
   static Color whiteColor = Color(0xffffffff);
   static Color lightGreyColor = Color(0xffB5B4B4);
 
-  static ThemeData darkTheme = ThemeData(
+  static ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: Colors.black,
     appBarTheme: AppBarTheme(
         color: Colors.black,

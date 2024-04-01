@@ -32,7 +32,8 @@ class _WatchListTabState extends State<WatchListTab> {
         SizedBox(height: 70),
         Text(
           'Watch List',
-          style: Theme.of(context).textTheme.titleMedium,
+          style: TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22),
         ),
         SizedBox(
           height: 10,
