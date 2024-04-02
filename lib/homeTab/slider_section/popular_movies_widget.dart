@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/Themes.dart';
 import 'package:movies_app/api_manager/apimanager.dart';
@@ -65,49 +66,51 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
                     child: Stack(
                       alignment: Alignment.bottomLeft,
                       children: [
-                        Column(
-                          children: [
-                            VideoPlayerWidget(
-                              movieId: resultsList[index].id.toString(),
-                            ),
-                            const SizedBox(height: 5),
-                            Row(
-                              children: [
-                                SizedBox(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.35),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
+                        SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              VideoPlayerWidget(
+                                movieId: resultsList[index].id.toString(),
+                              ),
+                              const SizedBox(height: 5),
+                              Row(
+                                children: [
+                                  SizedBox(
                                       width: MediaQuery.of(context).size.width *
-                                          0.5,
-                                      child: Text(
-                                        resultsList[index].title!,
+                                          0.35),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        width: MediaQuery.of(context).size.width *
+                                            0.5,
+                                        child: Text(
+                                          resultsList[index].title!,
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .titleLarge!
+                                              .copyWith(
+                                                  color: MyTheme.whiteColor),
+                                        ),
+                                      ),
+                                      Text(
+                                        resultsList[index].releaseDate!,
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                         style: Theme.of(context)
                                             .textTheme
-                                            .titleLarge!
+                                            .titleSmall!
                                             .copyWith(
-                                                color: MyTheme.whiteColor),
+                                                color: MyTheme.lightGreyColor),
                                       ),
-                                    ),
-                                    Text(
-                                      resultsList[index].releaseDate!,
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .titleSmall!
-                                          .copyWith(
-                                              color: MyTheme.lightGreyColor),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 5),

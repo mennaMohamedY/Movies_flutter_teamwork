@@ -69,15 +69,17 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
           }
         }
         _controller = YoutubePlayerController(initialVideoId: key ?? '');
-        return Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              YoutubePlayerBuilder(
-                  player: YoutubePlayer(controller: _controller),
-                  builder: (context, player) {
-                    return YoutubePlayer(controller: _controller);
-                  })
-            ]);
+        return SingleChildScrollView(
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                YoutubePlayerBuilder(
+                    player: YoutubePlayer(controller: _controller),
+                    builder: (context, player) {
+                      return YoutubePlayer(controller: _controller);
+                    })
+              ]),
+        );
       },
     );
   }
