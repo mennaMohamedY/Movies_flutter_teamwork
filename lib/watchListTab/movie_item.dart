@@ -25,7 +25,7 @@ class _MovieItemState extends State<MovieItem> {
             endPoint: '/3/movie/${widget.movie?.id}/credits'),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return CircularProgressIndicator();
+            return Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasError) {
             return Column(

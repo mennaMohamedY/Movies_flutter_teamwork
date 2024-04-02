@@ -34,6 +34,7 @@ class _SimilarMoviesWidgetState extends State<SimilarMoviesWidget> {
               ElevatedButton(
                   onPressed: () {
                     APIManager.getSimilarMoviesById(widget.movieId);
+                    setState(() {});
                   },
                   child: Text('Try Again'))
             ],
@@ -47,6 +48,7 @@ class _SimilarMoviesWidgetState extends State<SimilarMoviesWidget> {
               ElevatedButton(
                   onPressed: () {
                     APIManager.getSimilarMoviesById(widget.movieId);
+                    setState(() {});
                   },
                   child: Text('Try Again'))
             ],
