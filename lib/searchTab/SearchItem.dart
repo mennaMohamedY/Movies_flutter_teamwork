@@ -5,7 +5,7 @@ import 'package:movies_app/api/NewReleaseResponse.dart';
 import 'package:movies_app/api/api_manager.dart';
 
 class SearchItem extends StatefulWidget {
-  Movie? movie;
+  Results? movie;
   String? url;
   String? backDrop;
 

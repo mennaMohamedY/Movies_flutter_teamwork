@@ -27,7 +27,7 @@ class NewReleaseResponse {
     if (json['results'] != null) {
       results = [];
       json['results'].forEach((v) {
-        results?.add(Movie.fromJson(v));
+        results?.add(Results.fromJson(v));
       });
     }
     totalPages = json['total_pages'];
@@ -36,7 +36,7 @@ class NewReleaseResponse {
 
   Dates? dates;
   int? page;
-  List<Movie>? results;
+  List<Results>? results;
   int? totalPages;
   int? totalResults;
   bool? success;
@@ -73,25 +73,25 @@ class NewReleaseResponse {
 /// vote_average : 6.876
 /// vote_count : 89
 
-class Movie {
-  Movie({
-    this.adult,
-    this.backdropPath,
-    this.genreIds,
-    this.id,
-    this.originalLanguage,
-    this.originalTitle,
-    this.overview,
-    this.popularity,
-    this.posterPath,
-    this.releaseDate,
-    this.title,
+class Results {
+  Results(
+      {this.adult,
+      this.backdropPath,
+      this.genreIds,
+      this.id,
+      this.originalLanguage,
+      this.originalTitle,
+      this.overview,
+      this.popularity,
+      this.posterPath,
+      this.releaseDate,
+      this.title,
     this.video,
     this.voteAverage,
     this.voteCount,
     this.timestamp});
 
-  Movie.fromJson(dynamic json) {
+  Results.fromJson(dynamic json) {
     timestamp = json[timestamp];
     adult = json['adult'];
     backdropPath = json['backdrop_path'];

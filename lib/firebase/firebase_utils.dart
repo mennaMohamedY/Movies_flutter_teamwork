@@ -4,17 +4,17 @@ import 'package:movies_app/api/NewReleaseResponse.dart';
 class FirebaseUtils {
   static const String collectionName = 'SavedMovies';
 
-  static CollectionReference<Movie> getCollection() {
+  static CollectionReference<Results> getCollection() {
     return FirebaseFirestore.instance
         .collection(collectionName)
-        .withConverter<Movie>(
+        .withConverter<Results>(
             fromFirestore: (snapshot, options) =>
-                Movie.fromJson(snapshot.data()!),
+                Results.fromJson(snapshot.data()!),
             toFirestore: (movie, options) => movie.toJson());
   }
 
-  static Future<void> setMovieToFirestore(Movie movie) {
-    CollectionReference<Movie> collection = getCollection();
+  static Future<void> setMovieToFirestore(Results movie) {
+    CollectionReference<Results> collection = getCollection();
     return collection.doc(movie.id.toString()).set(movie);
   }
 }

@@ -4,10 +4,10 @@ import 'package:movies_app/api/NewReleaseResponse.dart';
 import 'package:movies_app/firebase/firebase_utils.dart';
 
 class AppConfigProvider extends ChangeNotifier {
-  List<Movie> savedMovies = [];
+  List<Results> savedMovies = [];
 
   void getMoviesFromFireStore() async {
-    QuerySnapshot<Movie> snapshot = await FirebaseUtils.getCollection().get();
+    QuerySnapshot<Results> snapshot = await FirebaseUtils.getCollection().get();
     savedMovies = snapshot.docs.map((e) => e.data()).toList();
 
     //savedMovies.sort((movie1, movie2) {

@@ -17,7 +17,7 @@ class SearchTab extends StatefulWidget {
 
 class _SearchTabState extends State<SearchTab> {
   String? query;
-  List<Movie> movies = [];
+  List<Results> movies = [];
 
   ///ScrollController _controller=ScrollController();
 

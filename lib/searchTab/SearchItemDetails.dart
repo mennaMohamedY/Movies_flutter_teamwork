@@ -8,7 +8,7 @@ import 'package:movies_app/provider/app_config_provider.dart';
 import 'package:provider/provider.dart';
 
 class SearchItemDetails extends StatefulWidget {
-  Movie movie;
+  Results movie;
 
   SearchItemDetails({required this.movie});
 

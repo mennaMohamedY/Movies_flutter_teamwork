@@ -4,7 +4,7 @@ import 'package:movies_app/api/NewReleaseResponse.dart';
 import 'package:movies_app/api/api_manager.dart';
 
 class GenereItem extends StatefulWidget {
-  Movie movie;
+  Results movie;
 
   GenereItem({required this.movie});
 

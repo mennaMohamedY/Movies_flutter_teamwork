@@ -23,7 +23,7 @@ class SearchResponsee {
     if (json['results'] != null) {
       results = [];
       json['results'].forEach((v) {
-        results?.add(Movie.fromJson(v));
+        results?.add(Results.fromJson(v));
       });
     }
     totalPages = json['total_pages'];
@@ -31,7 +31,7 @@ class SearchResponsee {
   }
 
   int? page;
-  List<Movie>? results;
+  List<Results>? results;
   int? totalPages;
   int? totalResults;
   String? status_message;

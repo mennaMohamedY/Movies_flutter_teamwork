@@ -25,7 +25,7 @@ class _SearchItemDetailsState extends State<SearchItemDetailsVideo> {
 
   @override
   Widget build(BuildContext context) {
-    Movie movie = ModalRoute.of(context)?.settings.arguments as Movie;
+    Results movie = ModalRoute.of(context)?.settings.arguments as Results;
     return Scaffold(
         appBar: AppBar(
             title: Text(movie.title ?? ''),
