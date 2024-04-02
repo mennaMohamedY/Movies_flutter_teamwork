@@ -61,7 +61,12 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
           return Column(
             children: [
               Text('Something Went Wrong'),
-              ElevatedButton(onPressed: () {}, child: Text('Try Again'))
+              ElevatedButton(
+                  onPressed: () {
+                    APIManager.getMoviesDetailsById(movieId);
+                    setState(() {});
+                  },
+                  child: Text('Try Again'))
             ],
           );
         }
@@ -69,7 +74,12 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
           return Column(
             children: [
               Text(snapshot.data?.statusMessage ?? ''),
-              ElevatedButton(onPressed: () {}, child: Text('Try Again'))
+              ElevatedButton(
+                  onPressed: () {
+                    APIManager.getMoviesDetailsById(movieId);
+                    setState(() {});
+                  },
+                  child: Text('Try Again'))
             ],
           );
         }

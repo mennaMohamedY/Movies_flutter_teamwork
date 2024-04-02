@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/Themes.dart';
 import 'package:movies_app/api_manager/apimanager.dart';
@@ -28,7 +27,12 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
           return Column(
             children: [
               Text('Something Went Wrong'),
-              ElevatedButton(onPressed: () {}, child: Text('Try Again'))
+              ElevatedButton(
+                  onPressed: () {
+                    APIManager.getPopularMovies();
+                    setState(() {});
+                  },
+                  child: Text('Try Again'))
             ],
           );
         }
@@ -36,7 +40,12 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
           return Column(
             children: [
               Text(snapshot.data?.statusMessage ?? ''),
-              ElevatedButton(onPressed: () {}, child: Text('Try Again'))
+              ElevatedButton(
+                  onPressed: () {
+                    APIManager.getPopularMovies();
+                    setState(() {});
+                  },
+                  child: Text('Try Again'))
             ],
           );
         }
@@ -79,11 +88,13 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
                                       width: MediaQuery.of(context).size.width *
                                           0.35),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                        width: MediaQuery.of(context).size.width *
-                                            0.5,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.5,
                                         child: Text(
                                           resultsList[index].title!,
                                           maxLines: 1,
@@ -113,7 +124,8 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 10),
                           child: MovieItem(
                             movieId: resultsList[index].id.toString(),
                             height: 170,

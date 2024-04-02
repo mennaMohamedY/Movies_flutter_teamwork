@@ -30,6 +30,7 @@ class _TopRatedMoviesWidgetState extends State<TopRatedMoviesWidget> {
               ElevatedButton(
                   onPressed: () {
                     APIManager.getTopRatedMovies();
+                    setState(() {});
                   },
                   child: Text('Try Again'))
             ],
@@ -43,6 +44,7 @@ class _TopRatedMoviesWidgetState extends State<TopRatedMoviesWidget> {
               ElevatedButton(
                   onPressed: () {
                     APIManager.getTopRatedMovies();
+                    setState(() {});
                   },
                   child: Text('Try Again'))
             ],
