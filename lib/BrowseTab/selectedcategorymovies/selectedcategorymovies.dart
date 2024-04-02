@@ -27,19 +27,19 @@ class _SelectedCategoryMoviesScreenState
   ///for search part
   void onQueryChanged(String query) {
     setState(() {
-      searchResult = moviesList!
+      searchResult = moviesList
           .where(
               (item) => item.title!.toLowerCase().contains(query.toLowerCase()))
           .toList();
 
-      if (query.isNotEmpty && searchResult!.isEmpty) {
+      if (query.isNotEmpty && searchResult.isEmpty) {
         notFound = true;
-        print("searchlist length..... ${searchResult?.length}");
+        print("searchlist length..... ${searchResult.length}");
       }
       if (query.isEmpty) {
         notFound = false;
       }
-      if (searchResult?.length == 0) {
+      if (searchResult.length == 0) {
         searchResult = [];
       }
     });
@@ -89,7 +89,10 @@ class _SelectedCategoryMoviesScreenState
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text("MoviesApp"),
+        title: Text(
+          categoryGenere.name!,
+          style: TextStyle(color: MyTheme.whiteColor),
+        ),
       ),
       body: Container(
         padding: EdgeInsets.only(
@@ -122,8 +125,11 @@ class _SelectedCategoryMoviesScreenState
                                     ),
                                   )
                                 : SingleMovieDesign(
+                                    movieId: (searchResult.isEmpty)
+                                        ? moviesList[index].id.toString()
+                                        : searchResult[index].id.toString(),
                                     movie: (searchResult.isEmpty)
-                                        ? moviesList![index]
+                                        ? moviesList[index]
                                         : searchResult[index]);
                           } else {
                             return Center(
@@ -132,7 +138,7 @@ class _SelectedCategoryMoviesScreenState
                           }
                         },
                         itemCount: (searchResult.isEmpty)
-                            ? moviesList!.length + 1
+                            ? moviesList.length + 1
                             : (notFound)
                                 ? 1
                                 : searchResult.length,
@@ -214,12 +220,15 @@ class _SelectedCategoryMoviesScreenState
                                     )
                                   : //moviesList[index];
                                   SingleMovieDesign(
+                                      movieId: (searchResult.isEmpty)
+                                          ? moviesList[index].id.toString()
+                                          : searchResult[index].id.toString(),
                                       movie: (searchResult.isEmpty)
-                                          ? moviesList![index]
+                                          ? moviesList[index]
                                           : searchResult[index]);
                             },
                             itemCount: (searchResult.isEmpty)
-                                ? moviesList?.length
+                                ? moviesList.length
                                 : (notFound)
                                     ? 1
                                     : searchResult.length,

@@ -4,7 +4,8 @@ import 'package:movies_app/api/NewReleaseResponse.dart';
 import 'package:movies_app/api/SearchResponsee.dart';
 import 'package:movies_app/api/api_manager.dart';
 import 'package:movies_app/searchTab/SearchItem.dart';
-import 'package:movies_app/searchTab/SearchItemDetailsVideo.dart';
+
+import '../homeTab/movies_details/movies_details_screen.dart';
 
 ///import 'package:provider/provider.dart';
 
@@ -111,9 +112,12 @@ loadPges();
                           Divider(thickness: 2, color: MyTheme.sectionsGrey),
                       itemBuilder: (context, index) => InkWell(
                         onTap: () {
-                          Navigator.of(context).pushNamed(
-                              SearchItemDetailsVideo.routeName,
-                              arguments: movies[index]);
+                          // Navigator.of(context).pushNamed(
+                          //     SearchItemDetailsVideo.routeName,
+                          //     arguments: movies[index]);
+                          Navigator.pushNamed(
+                              context, MovieDetailsScreen.routeName,
+                              arguments: movies[index].id.toString());
                         },
                         child: SearchItem(
                             movie: movies[index],

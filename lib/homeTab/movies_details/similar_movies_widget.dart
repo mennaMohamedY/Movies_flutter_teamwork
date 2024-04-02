@@ -53,46 +53,91 @@ class _SimilarMoviesWidgetState extends State<SimilarMoviesWidget> {
           );
         }
         var similarMoviesList = snapshot.data!.results ?? [];
-        return Container(
-          padding: EdgeInsets.all(5),
-          color: MyTheme.greyColor,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'More Like This',
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
-              Container(
-                height: MediaQuery.of(context).size.height * 0.23,
-                margin: EdgeInsets.only(top: 4),
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      // onTap: () {
-                      //   Navigator.pushNamed(
-                      //       context, MovieDetailsScreen.routeName,
-                      //       arguments:
-                      //           MovieDetails(results: topRatedList[index]));
-                      // },
-                      child: TopRatedMovieItem(
-                          movieId: similarMoviesList[index].id.toString(),
-                          movieName: similarMoviesList[index].originalTitle!,
-                          movieRate: similarMoviesList[index]
-                              .voteAverage!
-                              .toStringAsFixed(1),
-                          movieTime: similarMoviesList[index].releaseDate!,
-                          imagePath:
-                              "https://image.tmdb.org/t/p/w500/${similarMoviesList[index].posterPath ?? 'Y5P4Q3q8nrruZ9aD3wXeJS2Plg.jpg'}"),
-                    );
-                  },
-                  itemCount: 20,
+        if (similarMoviesList.isNotEmpty) {
+          return Container(
+            padding: EdgeInsets.all(5),
+            color: MyTheme.greyColor,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'More Like This',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
-              )
-            ],
-          ),
-        );
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.23,
+                  margin: EdgeInsets.only(top: 4),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        // onTap: () {
+                        //   Navigator.pushNamed(
+                        //       context, MovieDetailsScreen.routeName,
+                        //       arguments:
+                        //           MovieDetails(results: topRatedList[index]));
+                        // },
+                        child: TopRatedMovieItem(
+                            movieId: similarMoviesList[index].id.toString(),
+                            movieName: similarMoviesList[index].originalTitle!,
+                            movieRate: similarMoviesList[index]
+                                .voteAverage!
+                                .toStringAsFixed(1),
+                            movieTime: similarMoviesList[index].releaseDate!,
+                            imagePath:
+                                "https://image.tmdb.org/t/p/w500/${similarMoviesList[index].posterPath ?? 'Y5P4Q3q8nrruZ9aD3wXeJS2Plg.jpg'}"),
+                      );
+                    },
+                    itemCount: similarMoviesList
+                        .length, // Use the actual length of the list
+                  ),
+                )
+              ],
+            ),
+          );
+        } else {
+          // Handle the case when similarMoviesList is empty
+          return Container(
+            height: 100,
+            child: Center(
+              child: Text('No similar movies found',
+                  style: TextStyle(color: MyTheme.whiteColor)),
+            ),
+          );
+          // var similarMoviesList = snapshot.data!.results ?? [];
+          // return Container(
+          //   padding: EdgeInsets.all(5),
+          //   color: MyTheme.greyColor,
+          //   child: Column(
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+          //       Text(
+          //         'More Like This',
+          //         style: TextStyle(color: Colors.white, fontSize: 20),
+          //       ),
+          //       Container(
+          //         height: MediaQuery.of(context).size.height * 0.23,
+          //         margin: EdgeInsets.only(top: 4),
+          //         child: ListView.builder(
+          //           scrollDirection: Axis.horizontal,
+          //           itemBuilder: (context, index) {
+          //             return TopRatedMovieItem(
+          //                 movieId: similarMoviesList[index].id.toString(),
+          //                 movieName: similarMoviesList[index].originalTitle!,
+          //                 movieRate: similarMoviesList[index]
+          //                     .voteAverage!
+          //                     .toStringAsFixed(1),
+          //                 movieTime: similarMoviesList[index].releaseDate!,
+          //                 imagePath:
+          //                     "https://image.tmdb.org/t/p/w500/${similarMoviesList[index].posterPath ?? 'Y5P4Q3q8nrruZ9aD3wXeJS2Plg.jpg'}");
+          //           },
+          //           itemCount: 20,
+          //         ),
+          //       )
+          //     ],
+          //   ),
+          // );
+        }
       },
     );
   }

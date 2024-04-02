@@ -114,89 +114,88 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                         movieDetails.releaseDate!,
                         style: TextStyle(color: Colors.grey),
                       )),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Stack(
-                        alignment: Alignment.topLeft,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 12),
-                            child: Image.network(
-                              "https://image.tmdb.org/t/p/w500/${movieDetails.posterPath}",
-                              height: MediaQuery.of(context).size.height * 0.26,
-                              width: MediaQuery.of(context).size.width * 0.3,
-                              fit: BoxFit.fill,
-                            ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 12),
+                          child: Image.network(
+                            "https://image.tmdb.org/t/p/w500/${movieDetails.posterPath}",
+                            height: MediaQuery.of(context).size.height * 0.26,
+                            width: MediaQuery.of(context).size.width * 0.3,
+                            fit: BoxFit.fill,
                           ),
-                        ],
-                      ),
-                      Expanded(
-                          child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            height: 50,
-                            child: ListView.builder(
-                              itemBuilder: (context, index) {
-                                var genreList = movieDetails.genres!;
-                                return Container(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 5, vertical: 2),
-                                    margin: EdgeInsets.all(5),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      border: Border.all(
-                                        color: Colors.grey,
-                                        width: 2,
+                        ),
+                        Expanded(
+                            child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              height: 50,
+                              child: ListView.builder(
+                                itemBuilder: (context, index) {
+                                  var genreList = movieDetails.genres!;
+                                  return Container(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 5, vertical: 2),
+                                      margin: EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(
+                                          color: Colors.grey,
+                                          width: 2,
+                                        ),
                                       ),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        genreList[index].name!,
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                    ));
-                              },
-                              scrollDirection: Axis.horizontal,
-                              itemCount: movieDetails.genres!.length,
+                                      child: Center(
+                                        child: Text(
+                                          genreList[index].name!,
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ));
+                                },
+                                scrollDirection: Axis.horizontal,
+                                itemCount: movieDetails.genres!.length,
+                              ),
                             ),
-                          ),
-                          Padding(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 12, horizontal: 7),
-                              child: SingleChildScrollView(
-                                  child: Text(
-                                movieDetails.overview!,
-                                style: TextStyle(
-                                    fontSize: 14, color: Colors.white),
-                              ))),
-                          Padding(
-                            padding:
-                                EdgeInsets.only(left: 12, top: 9, bottom: 9),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.star,
-                                  color: CupertinoColors.systemYellow,
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  movieDetails.voteAverage!.toStringAsFixed(1),
+                            Padding(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 12, horizontal: 7),
+                                child: SingleChildScrollView(
+                                    child: Text(
+                                  movieDetails.overview!,
                                   style: TextStyle(
-                                      color: Colors.white, fontSize: 16),
-                                )
-                              ],
+                                      fontSize: 14, color: Colors.white),
+                                ))),
+                            Padding(
+                              padding:
+                                  EdgeInsets.only(left: 12, top: 9, bottom: 9),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.star,
+                                    color: CupertinoColors.systemYellow,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    movieDetails.voteAverage!
+                                        .toStringAsFixed(1),
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 16),
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
-                      ))
-                    ],
+                          ],
+                        ))
+                      ],
+                    ),
                   ),
                   SimilarMoviesWidget(movieId: movieId)
                 ],
