@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:movies_app/api/NewReleaseResponse.dart';
+
+import '../responses/ReleasesMoviesResponse.dart';
 
 class FirebaseUtils {
   static const String collectionName = 'SavedMovies';

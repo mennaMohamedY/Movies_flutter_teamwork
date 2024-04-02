@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/Themes.dart';
+import 'package:movies_app/firebase/firebase_utils.dart';
 
+import '../../responses/ReleasesMoviesResponse.dart';
 import '../movies_details/movies_details_screen.dart';
 
 class MovieItem extends StatefulWidget {
+  Results movie;
   String movieId;
   String imagePath;
   double height;
 
   MovieItem(
-      {required this.imagePath, required this.movieId, required this.height});
+      {required this.imagePath,
+      required this.movieId,
+      required this.height,
+      required this.movie});
 
   @override
   State<MovieItem> createState() => _MovieItemState();
@@ -54,6 +60,7 @@ class _MovieItemState extends State<MovieItem> {
   }
 
   clickedIcon() {
+    FirebaseUtils.setMovieToFirestore(widget.movie);
     return Icon(
       Icons.bookmark_added,
       color: MyTheme.yellowColor,

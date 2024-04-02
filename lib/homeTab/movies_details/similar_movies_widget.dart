@@ -80,6 +80,7 @@ class _SimilarMoviesWidgetState extends State<SimilarMoviesWidget> {
                         //           MovieDetails(results: topRatedList[index]));
                         // },
                         child: TopRatedMovieItem(
+                            movie: similarMoviesList[index],
                             movieId: similarMoviesList[index].id.toString(),
                             movieName: similarMoviesList[index].originalTitle!,
                             movieRate: similarMoviesList[index]

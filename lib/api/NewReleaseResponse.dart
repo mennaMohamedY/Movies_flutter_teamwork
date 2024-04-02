@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import '../responses/ReleasesMoviesResponse.dart';
 
 /// dates : {"maximum":"2024-04-10","minimum":"2024-03-20"}
 /// page : 1
@@ -73,7 +73,7 @@ class NewReleaseResponse {
 /// vote_average : 6.876
 /// vote_count : 89
 
-class Results {
+/*class Results {
   Results(
       {this.adult,
       this.backdropPath,
@@ -143,7 +143,7 @@ class Results {
     map['vote_count'] = voteCount;
     return map;
   }
-}
+}*/
 
 /// maximum : "2024-04-10"
 /// minimum : "2024-03-20"

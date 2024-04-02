@@ -1,11 +1,11 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/api/MovieDetailsResponse.dart';
-import 'package:movies_app/api/NewReleaseResponse.dart';
 import 'package:movies_app/api/api_manager.dart';
 import 'package:movies_app/firebase/firebase_utils.dart';
 import 'package:movies_app/provider/app_config_provider.dart';
 import 'package:provider/provider.dart';
+
+import '../responses/ReleasesMoviesResponse.dart';
 
 class SearchItemDetails extends StatefulWidget {
   Results movie;
@@ -40,7 +40,6 @@ class _SearchItemDetailsState extends State<SearchItemDetails> {
               onTap: () {
                 isClicked = true;
 
-                widget.movie.timestamp = Timestamp.now();
                 FirebaseUtils.setMovieToFirestore(widget.movie)
                     .timeout(Duration(milliseconds: 500), onTimeout: () {
                   provider.getMoviesFromFireStore();

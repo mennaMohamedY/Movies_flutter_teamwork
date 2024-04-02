@@ -39,13 +39,13 @@ class MovieTrailersResponse {
     if (json['results'] != null) {
       results = [];
       json['results'].forEach((v) {
-        results?.add(Results.fromJson(v));
+        results?.add(Trailerr.fromJson(v));
       });
     }
   }
 
   int? id;
-  List<Results>? results;
+  List<Trailerr>? results;
   int? status_code;
   String? status_message;
   bool? success;
@@ -71,8 +71,8 @@ class MovieTrailersResponse {
 /// published_at : "2024-03-13T17:00:23.000Z"
 /// id : "65f3e5a83852020163e1fdd0"
 
-class Results {
-  Results({
+class Trailerr {
+  Trailerr({
     this.iso6391,
     this.iso31661,
     this.name,
@@ -85,7 +85,7 @@ class Results {
     this.id,
   });
 
-  Results.fromJson(dynamic json) {
+  Trailerr.fromJson(dynamic json) {
     iso6391 = json['iso_639_1'];
     iso31661 = json['iso_3166_1'];
     name = json['name'];

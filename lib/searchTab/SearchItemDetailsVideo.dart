@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/Themes.dart';
-import 'package:movies_app/api/NewReleaseResponse.dart';
 import 'package:movies_app/api/VideosResponse.dart';
 import 'package:movies_app/api/api_manager.dart';
 import 'package:movies_app/searchTab/SearchItemDetails.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+
+import '../responses/ReleasesMoviesResponse.dart';
 
 class SearchItemDetailsVideo extends StatefulWidget {
   static const String routeName = 'searchItemDetails';

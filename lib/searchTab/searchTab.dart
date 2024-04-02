@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/Themes.dart';
-import 'package:movies_app/api/NewReleaseResponse.dart';
 import 'package:movies_app/api/SearchResponsee.dart';
 import 'package:movies_app/api/api_manager.dart';
 import 'package:movies_app/searchTab/SearchItem.dart';
 
 import '../homeTab/movies_details/movies_details_screen.dart';
+import '../responses/ReleasesMoviesResponse.dart';
 
 ///import 'package:provider/provider.dart';
 

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/Themes.dart';
+import 'package:movies_app/firebase/firebase_utils.dart';
 import 'package:movies_app/homeTab/releases_movies/movie-item.dart';
+
+import '../../responses/ReleasesMoviesResponse.dart';
 
 class TopRatedMovieItem extends StatefulWidget {
   String imagePath;
@@ -8,14 +11,15 @@ class TopRatedMovieItem extends StatefulWidget {
   String movieName;
   String movieTime;
   String movieRate;
+  Results movie;
 
-  TopRatedMovieItem({
-    required this.imagePath,
-    required this.movieId,
-    required this.movieName,
-    required this.movieRate,
-    required this.movieTime,
-  });
+  TopRatedMovieItem(
+      {required this.imagePath,
+      required this.movieId,
+      required this.movieName,
+      required this.movieRate,
+      required this.movieTime,
+      required this.movie});
 
   @override
   State<TopRatedMovieItem> createState() => _TopRatedMovieItemState();
@@ -36,6 +40,7 @@ class _TopRatedMovieItemState extends State<TopRatedMovieItem> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             MovieItem(
+                movie: widget.movie,
                 height: 130,
                 imagePath: widget.imagePath,
                 movieId: widget.movieId),
@@ -84,6 +89,7 @@ class _TopRatedMovieItemState extends State<TopRatedMovieItem> {
   }
 
   clickedIcon() {
+    FirebaseUtils.setMovieToFirestore(widget.movie);
     return Icon(
       Icons.bookmark_added,
       color: MyTheme.yellowColor,

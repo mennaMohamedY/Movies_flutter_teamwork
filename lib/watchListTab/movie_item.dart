@@ -1,8 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/api/CreditsResponse.dart';
-import 'package:movies_app/api/NewReleaseResponse.dart';
 import 'package:movies_app/api/api_manager.dart';
+
+import '../responses/ReleasesMoviesResponse.dart';
 
 class MovieItem extends StatefulWidget {
   Results? movie;
@@ -116,11 +117,11 @@ class _MovieItemState extends State<MovieItem> {
                           style: TextStyle(color: Colors.grey),
                         ),
                         Text(
-                          '$act1 , ',
+                          '$act2 , ',
                           style: TextStyle(color: Colors.grey),
                         ),
                         Text(
-                          '$act1 , ',
+                          '$act3 , ',
                           style: TextStyle(color: Colors.grey),
                         ),
                       ],

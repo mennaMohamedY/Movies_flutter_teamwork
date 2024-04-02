@@ -1,8 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/api/CreditsResponse.dart';
-import 'package:movies_app/api/NewReleaseResponse.dart';
 import 'package:movies_app/api/api_manager.dart';
+
+import '../responses/ReleasesMoviesResponse.dart';
 
 class SearchItem extends StatefulWidget {
   Results? movie;
@@ -59,14 +60,6 @@ class _MovieItemState extends State<SearchItem> {
           /* for(int i=0;i<actors.length;i++){
             actorsNames.add(actors[i].name??'');
           }*/
-          String? act1;
-          String? act2;
-          String? act3;
-          if (actors.isNotEmpty) {
-            act1 = actors[0].name ?? '';
-            act2 = actors[1].name ?? '';
-            act3 = actors[2].name ?? '';
-          }
 
           print(actors.length);
           return SingleChildScrollView(

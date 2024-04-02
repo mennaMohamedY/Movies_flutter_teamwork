@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/api/MovieDetailsResponse.dart';
-import 'package:movies_app/api/NewReleaseResponse.dart';
 import 'package:movies_app/api/api_manager.dart';
+
+import '../responses/ReleasesMoviesResponse.dart';
 
 class GenereItem extends StatefulWidget {
   Results movie;

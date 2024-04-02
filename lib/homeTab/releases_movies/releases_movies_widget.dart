@@ -72,6 +72,7 @@ class _ReleasesMoviesWidgetState extends State<ReleasesMoviesWidget> {
                     return Container(
                       padding: EdgeInsets.all(6),
                       child: MovieItem(
+                          movie: releasesList[index],
                           movieId: releasesList[index].id.toString(),
                           height: 170,
                           imagePath:

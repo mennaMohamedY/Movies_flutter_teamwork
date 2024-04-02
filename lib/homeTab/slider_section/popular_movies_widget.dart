@@ -127,6 +127,7 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 10, vertical: 10),
                           child: MovieItem(
+                            movie: resultsList[index],
                             movieId: resultsList[index].id.toString(),
                             height: 170,
                             imagePath:

@@ -75,6 +75,7 @@ class _TopRatedMoviesWidgetState extends State<TopRatedMoviesWidget> {
                       //           MovieDetails(results: topRatedList[index]));
                       // },
                       child: TopRatedMovieItem(
+                          movie: topRatedList[index],
                           movieId: topRatedList[index].id.toString(),
                           movieName: topRatedList[index].originalTitle!,
                           movieRate: topRatedList[index]
