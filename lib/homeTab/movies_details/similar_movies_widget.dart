@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/api_manager/apimanager.dart';
 import 'package:movies_app/homeTab/recomended_movies/top_rated_movie-item.dart';
-import 'package:movies_app/responses/TopRatedMoviesResponse.dart';
+import 'package:movies_app/responses/SimilarMoviesResponse.dart';
 
 import '../../Themes.dart';
 
-class TopRatedMoviesWidget extends StatefulWidget {
+class SimilarMoviesWidget extends StatefulWidget {
+  String movieId;
+
+  SimilarMoviesWidget({required this.movieId});
+
   @override
-  State<TopRatedMoviesWidget> createState() => _TopRatedMoviesWidgetState();
+  State<SimilarMoviesWidget> createState() => _SimilarMoviesWidgetState();
 }
 
-class _TopRatedMoviesWidgetState extends State<TopRatedMoviesWidget> {
+class _SimilarMoviesWidgetState extends State<SimilarMoviesWidget> {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<TopRatedMoviesResponse>(
-      future: APIManager.getTopRatedMovies(),
+    return FutureBuilder<SimilarMoviesResponse>(
+      future: APIManager.getSimilarMoviesById(widget.movieId),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(
@@ -29,7 +33,7 @@ class _TopRatedMoviesWidgetState extends State<TopRatedMoviesWidget> {
                   style: TextStyle(color: MyTheme.whiteColor)),
               ElevatedButton(
                   onPressed: () {
-                    APIManager.getTopRatedMovies();
+                    APIManager.getSimilarMoviesById(widget.movieId);
                   },
                   child: Text('Try Again'))
             ],
@@ -42,13 +46,13 @@ class _TopRatedMoviesWidgetState extends State<TopRatedMoviesWidget> {
                   style: TextStyle(color: MyTheme.whiteColor)),
               ElevatedButton(
                   onPressed: () {
-                    APIManager.getTopRatedMovies();
+                    APIManager.getSimilarMoviesById(widget.movieId);
                   },
                   child: Text('Try Again'))
             ],
           );
         }
-        var topRatedList = snapshot.data!.results ?? [];
+        var similarMoviesList = snapshot.data!.results ?? [];
         return Container(
           padding: EdgeInsets.all(5),
           color: MyTheme.greyColor,
@@ -56,7 +60,7 @@ class _TopRatedMoviesWidgetState extends State<TopRatedMoviesWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Recomended',
+                'More Like This',
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
               Container(
@@ -73,14 +77,14 @@ class _TopRatedMoviesWidgetState extends State<TopRatedMoviesWidget> {
                       //           MovieDetails(results: topRatedList[index]));
                       // },
                       child: TopRatedMovieItem(
-                          movieId: topRatedList[index].id.toString(),
-                          movieName: topRatedList[index].originalTitle!,
-                          movieRate: topRatedList[index]
+                          movieId: similarMoviesList[index].id.toString(),
+                          movieName: similarMoviesList[index].originalTitle!,
+                          movieRate: similarMoviesList[index]
                               .voteAverage!
                               .toStringAsFixed(1),
-                          movieTime: topRatedList[index].releaseDate!,
+                          movieTime: similarMoviesList[index].releaseDate!,
                           imagePath:
-                              "https://image.tmdb.org/t/p/w500/${topRatedList[index].posterPath}"),
+                              "https://image.tmdb.org/t/p/w500/${similarMoviesList[index].posterPath ?? 'Y5P4Q3q8nrruZ9aD3wXeJS2Plg.jpg'}"),
                     );
                   },
                   itemCount: 20,

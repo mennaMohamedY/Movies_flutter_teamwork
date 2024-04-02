@@ -112,6 +112,8 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 5),
                           child: MovieItem(
+                            movieId: resultsList[index].id.toString(),
+                            height: 170,
                             imagePath:
                                 'https://image.tmdb.org/t/p/w500/${resultsList[index].posterPath}',
                           ),

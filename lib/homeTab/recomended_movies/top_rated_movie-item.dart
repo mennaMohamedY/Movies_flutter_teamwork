@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/Themes.dart';
+import 'package:movies_app/homeTab/releases_movies/movie-item.dart';
 
 class TopRatedMovieItem extends StatefulWidget {
   String imagePath;
+  String movieId;
   String movieName;
   String movieTime;
   String movieRate;
 
   TopRatedMovieItem({
     required this.imagePath,
+    required this.movieId,
     required this.movieName,
     required this.movieRate,
     required this.movieTime,
@@ -31,21 +34,10 @@ class _TopRatedMovieItemState extends State<TopRatedMovieItem> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Stack(
-            alignment: Alignment.topLeft,
-            children: [
-              Image.network(widget.imagePath,
-                  height: 120, width: 115, fit: BoxFit.fill),
-              GestureDetector(
-                onTap: () {
-                  // isClicked = true;
-                  counter++;
-                  setState(() {});
-                },
-                child: counter % 2 == 1 ? clickedIcon() : unClickedIcon(),
-              )
-            ],
-          ),
+          MovieItem(
+              height: 130,
+              imagePath: widget.imagePath,
+              movieId: widget.movieId),
           Container(
             width: 115,
             padding: EdgeInsets.only(left: 4),

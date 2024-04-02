@@ -41,23 +41,24 @@ loadPges();
         appBar: AppBar(
             backgroundColor: Colors.black,
             title: Container(
-              padding: EdgeInsets.all(15),
+              padding: EdgeInsets.symmetric(horizontal: 10),
               height: MediaQuery.of(context).size.height * 0.06,
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.white),
                   borderRadius: BorderRadius.circular(25),
                   color: Color(0xff424141)),
               child: TextField(
-                style: TextStyle(color: Colors.white, fontSize: 17),
+                style: TextStyle(color: Colors.white, fontSize: 20),
                 decoration: InputDecoration(
+                    contentPadding: EdgeInsets.symmetric(vertical: 8),
                     border: InputBorder.none,
                     prefixIcon: Icon(
                       Icons.search,
-                      size: 25,
+                      size: 30,
                       color: Colors.white,
                     ),
                     hintText: 'Search',
-                    hintStyle: TextStyle(color: Colors.white, fontSize: 17)),
+                    hintStyle: TextStyle(color: Colors.white, fontSize: 20)),
                 onChanged: (text) {
                   query = text;
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/homeTab/movies_details/movies_details_screen.dart';
 import 'package:movies_app/homeTab/releases_movies/movie-item.dart';
 import 'package:movies_app/responses/ReleasesMoviesResponse.dart';
 
@@ -70,14 +69,11 @@ class _ReleasesMoviesWidgetState extends State<ReleasesMoviesWidget> {
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(
-                            context, MovieDetailsScreen.routeName,
-                            arguments:
-                                MovieDetails(results: releasesList[index]));
-                      },
+                    return Container(
+                      padding: EdgeInsets.all(6),
                       child: MovieItem(
+                          movieId: releasesList[index].id.toString(),
+                          height: 170,
                           imagePath:
                               "https://image.tmdb.org/t/p/w500/${releasesList[index].posterPath}"),
                     );

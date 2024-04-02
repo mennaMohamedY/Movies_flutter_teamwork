@@ -8,6 +8,7 @@ import 'package:movies_app/responses/MoviesDetailsResponse.dart';
 import 'package:movies_app/responses/PopularMoviesResponse.dart';
 import 'package:movies_app/responses/ReleasesMoviesResponse.dart';
 import 'package:movies_app/responses/SelectedCategoryMoviesResponse.dart';
+import 'package:movies_app/responses/SimilarMoviesResponse.dart';
 import 'package:movies_app/responses/TopRatedMoviesResponse.dart';
 
 class APIManager {
@@ -68,16 +69,31 @@ class APIManager {
     }
   }
 
-  static Future<MoviesDetailsResponse> getMoviesDetailsById(int movieId) async {
-    Uri url = Uri.https(Constants.baseUrl, Constants.movieDetails, {
+  static Future<MoviesDetailsResponse> getMoviesDetailsById(
+      String movieId) async {
+    Uri url = Uri.https(Constants.baseUrl, "/3/movie/${movieId}", {
       'api_key': Constants.APIKey,
-      'id': movieId,
     });
     try {
       var movieDetails = await http.get(url);
       var responseBody = movieDetails.body;
       var json = jsonDecode(responseBody);
       return MoviesDetailsResponse.fromJson(json);
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  static Future<SimilarMoviesResponse> getSimilarMoviesById(
+      String movieId) async {
+    Uri url = Uri.https(Constants.baseUrl, "/3/movie/${movieId}/similar", {
+      'api_key': Constants.APIKey,
+    });
+    try {
+      var similarMovies = await http.get(url);
+      var responseBody = similarMovies.body;
+      var json = jsonDecode(responseBody);
+      return SimilarMoviesResponse.fromJson(json);
     } catch (e) {
       throw e;
     }

@@ -7,5 +7,5 @@ class Constants {
   static String popularMovies = '/3/movie/popular';
   static String releasesMovies = '/3/movie/upcoming';
   static String topRatedMovies = '/3/movie/top_rated';
-  static String movieDetails = '/3/movie/';
+  static String movieDetails = '/3/movie/823464';
 }

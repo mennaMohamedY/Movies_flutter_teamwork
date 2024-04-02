@@ -32,13 +32,13 @@ class _SearchBarrState extends State<SearchBarr> {
           filled: true,
           labelText: 'Search Category here',
           focusColor: Colors.white70,
-          labelStyle: TextStyle(color: MyTheme.bordersColor),
+          labelStyle: TextStyle(color: MyTheme.whiteColor),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(25),
               borderSide: BorderSide(color: MyTheme.bordersColor)),
           prefixIcon: Icon(
             Icons.search,
-            color: MyTheme.bordersColor,
+            color: MyTheme.whiteColor,
           ),
         ),
       ),
