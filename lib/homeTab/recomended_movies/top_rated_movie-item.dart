@@ -31,43 +31,46 @@ class _TopRatedMovieItemState extends State<TopRatedMovieItem> {
       margin: EdgeInsets.all(6),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8), color: MyTheme.darkGreyColor),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          MovieItem(
-              height: 130,
-              imagePath: widget.imagePath,
-              movieId: widget.movieId),
-          Container(
-            width: 115,
-            padding: EdgeInsets.only(left: 4),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Icon(Icons.star, color: MyTheme.yellowColor, size: 18),
-                    SizedBox(width: 4),
-                    Text('${widget.movieRate}',
-                        style: TextStyle(
-                          color: MyTheme.whiteColor,
-                        ))
-                  ],
-                ),
-                Text(
-                  widget.movieName,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
-                  style: TextStyle(color: MyTheme.whiteColor),
-                ),
-                Text(
-                  widget.movieTime,
-                  style: TextStyle(color: MyTheme.lightGreyColor, fontSize: 10),
-                ),
-              ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            MovieItem(
+                height: 130,
+                imagePath: widget.imagePath,
+                movieId: widget.movieId),
+            Container(
+              width: 115,
+              padding: EdgeInsets.symmetric(horizontal: 5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.star, color: MyTheme.yellowColor, size: 18),
+                      SizedBox(width: 4),
+                      Text('${widget.movieRate}',
+                          style: TextStyle(
+                            color: MyTheme.whiteColor,
+                          ))
+                    ],
+                  ),
+                  Text(
+                    widget.movieName,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: TextStyle(color: MyTheme.whiteColor),
+                  ),
+                  Text(
+                    widget.movieTime,
+                    style:
+                        TextStyle(color: MyTheme.lightGreyColor, fontSize: 10),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
