@@ -62,8 +62,8 @@ class _MovieItemState extends State<MovieItem> {
           String? act3;
           if (actors.isNotEmpty) {
             act1 = actors[0].name ?? '';
-            act2 = actors[1].name ?? '';
-            act3 = actors[2].name ?? '';
+            act2 = actors[0].name ?? '';
+            act3 = actors[0].name ?? '';
           }
           return SingleChildScrollView(
             scrollDirection: Axis.horizontal,
@@ -121,6 +121,7 @@ class _MovieItemState extends State<MovieItem> {
                           style: TextStyle(color: Colors.grey),
                         ),
                         Text(
+                          //'$act3 , '
                           '$act3 , ',
                           style: TextStyle(color: Colors.grey),
                         ),

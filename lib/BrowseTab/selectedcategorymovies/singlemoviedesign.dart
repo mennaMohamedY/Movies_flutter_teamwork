@@ -1,14 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:movies_app/api/NewReleaseResponse.dart';
+import 'package:movies_app/firebase/firebase_utils.dart';
 import 'package:movies_app/responses/SelectedCategoryMoviesResponse.dart';
 
 import '../../homeTab/movies_details/movies_details_screen.dart';
+import '../../responses/ReleasesMoviesResponse.dart';
 
 class SingleMovieDesign extends StatefulWidget {
   String movieId;
 
   //MoviesDataModel movie;
   Results movie;
+
+
 
   SingleMovieDesign({required this.movie, required this.movieId});
 
@@ -22,6 +27,8 @@ class _SingleMovieDesignState extends State<SingleMovieDesign> {
 
   @override
   Widget build(BuildContext context) {
+    //Movie moviee=widget.movie as Movie;
+
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, MovieDetailsScreen.routeName,
@@ -113,6 +120,7 @@ class _SingleMovieDesignState extends State<SingleMovieDesign> {
   void onSaveClickListener() {
     if (counter % 2 == 0) {
       saved = true;
+      FirebaseUtils.setMovieToFirestore(widget.movie);
     } else {
       saved = false;
     }
