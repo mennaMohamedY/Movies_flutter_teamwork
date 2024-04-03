@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/Themes.dart';
 import 'package:movies_app/firebase/firebase_utils.dart';
 import 'package:movies_app/homeTab/releases_movies/movie-item.dart';
+import 'package:provider/provider.dart';
 
+import '../../provider/app_config_provider.dart';
 import '../../responses/ReleasesMoviesResponse.dart';
 
 class TopRatedMovieItem extends StatefulWidget {
@@ -27,9 +29,12 @@ class TopRatedMovieItem extends StatefulWidget {
 
 class _TopRatedMovieItemState extends State<TopRatedMovieItem> {
   int counter = 0;
+  late AppConfigProvider provider;
 
   @override
   Widget build(BuildContext context) {
+    provider = Provider.of<AppConfigProvider>(context);
+
     return Container(
       clipBehavior: Clip.antiAlias,
       margin: EdgeInsets.all(6),
@@ -69,7 +74,7 @@ class _TopRatedMovieItemState extends State<TopRatedMovieItem> {
                   Text(
                     widget.movieTime,
                     style:
-                        TextStyle(color: MyTheme.lightGreyColor, fontSize: 10),
+                    TextStyle(color: MyTheme.lightGreyColor, fontSize: 10),
                   ),
                 ],
               ),
@@ -90,6 +95,8 @@ class _TopRatedMovieItemState extends State<TopRatedMovieItem> {
 
   clickedIcon() {
     FirebaseUtils.setMovieToFirestore(widget.movie);
+    provider.getMoviesFromFireStore();
+
     return Icon(
       Icons.bookmark_added,
       color: MyTheme.yellowColor,

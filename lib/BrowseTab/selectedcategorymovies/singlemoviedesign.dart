@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_app/api/NewReleaseResponse.dart';
 import 'package:movies_app/firebase/firebase_utils.dart';
-import 'package:movies_app/responses/SelectedCategoryMoviesResponse.dart';
+import 'package:provider/provider.dart';
 
 import '../../homeTab/movies_details/movies_details_screen.dart';
+import '../../provider/app_config_provider.dart';
 import '../../responses/ReleasesMoviesResponse.dart';
 
 class SingleMovieDesign extends StatefulWidget {
@@ -24,9 +24,12 @@ class SingleMovieDesign extends StatefulWidget {
 class _SingleMovieDesignState extends State<SingleMovieDesign> {
   bool saved = false;
   var counter = 0;
+  late AppConfigProvider provider;
 
   @override
   Widget build(BuildContext context) {
+    provider = Provider.of<AppConfigProvider>(context);
+
     //Movie moviee=widget.movie as Movie;
 
     return InkWell(
@@ -41,7 +44,7 @@ class _SingleMovieDesignState extends State<SingleMovieDesign> {
             borderRadius: BorderRadius.all(Radius.circular(15))),
         child: SingleChildScrollView(
           child:
-              Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
             Stack(
               alignment: Alignment.topLeft,
               children: [
@@ -69,15 +72,15 @@ class _SingleMovieDesignState extends State<SingleMovieDesign> {
                 IconButton(
                   icon: (saved)
                       ? Icon(
-                          Icons.bookmark_added_sharp,
-                          color: CupertinoColors.systemYellow,
-                          size: 35,
-                        )
+                    Icons.bookmark_added_sharp,
+                    color: CupertinoColors.systemYellow,
+                    size: 35,
+                  )
                       : Icon(
-                          Icons.bookmark_added_outlined,
-                          color: Color(0xC9C4C4FF),
-                          size: 35,
-                        ),
+                    Icons.bookmark_added_outlined,
+                    color: Color(0xC9C4C4FF),
+                    size: 35,
+                  ),
                   onPressed: () {
                     onSaveClickListener();
                   },
@@ -121,6 +124,7 @@ class _SingleMovieDesignState extends State<SingleMovieDesign> {
     if (counter % 2 == 0) {
       saved = true;
       FirebaseUtils.setMovieToFirestore(widget.movie);
+      provider.getMoviesFromFireStore();
     } else {
       saved = false;
     }

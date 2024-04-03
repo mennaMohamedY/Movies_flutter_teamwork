@@ -4,10 +4,8 @@ import 'package:movies_app/BrowseTab/selectedcategorymovies/singlemoviedesign.da
 import 'package:movies_app/Themes.dart';
 import 'package:movies_app/api_manager/apimanager.dart';
 import 'package:movies_app/responses/CategoriesResponse.dart';
-import 'package:movies_app/responses/SelectedCategoryMoviesResponse.dart';
 
 import '../../responses/ReleasesMoviesResponse.dart';
-
 
 class SelectedCategoryMoviesScreen extends StatefulWidget {
   static String routeName = "SelectedCategoryMoviesScreen";

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/Themes.dart';
 import 'package:movies_app/firebase/firebase_utils.dart';
+import 'package:provider/provider.dart';
 
+import '../../provider/app_config_provider.dart';
 import '../../responses/ReleasesMoviesResponse.dart';
 import '../movies_details/movies_details_screen.dart';
 
@@ -23,9 +25,12 @@ class MovieItem extends StatefulWidget {
 
 class _MovieItemState extends State<MovieItem> {
   int counter = 0;
+  late AppConfigProvider provider;
 
   @override
   Widget build(BuildContext context) {
+    provider = Provider.of<AppConfigProvider>(context);
+
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, MovieDetailsScreen.routeName,
@@ -61,6 +66,7 @@ class _MovieItemState extends State<MovieItem> {
 
   clickedIcon() {
     FirebaseUtils.setMovieToFirestore(widget.movie);
+    provider.getMoviesFromFireStore();
     return Icon(
       Icons.bookmark_added,
       color: MyTheme.yellowColor,
