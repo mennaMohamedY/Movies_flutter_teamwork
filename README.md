@@ -1,12 +1,15 @@
 # movies_app
 
-A new Flutter project.
+Introducing our immersive Movies Application - your ultimate destination for discovering, exploring, and enjoying the latest and greatest movies from around the world, all powered by Flutter
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+https://github.com/mennaMohamedY/Movies_flutter_teamwork/assets/62669827/ed9f86d4-8376-4ffc-81c9-630ba45e515c
+
+Uploading Untitled video - Made with Clipchamp (5).mp4…
+
+
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
